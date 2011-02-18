@@ -1,0 +1,8 @@
+bin
+obj
+*.user
+*.suo
+*.vsp
+*.csproj.VisualState.xml
+TestResult.xml
+*.swp
