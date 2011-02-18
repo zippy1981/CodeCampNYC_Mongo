@@ -9,7 +9,7 @@
 <title>Console</title>
 </head>
 <body>
-<table style="border:solid;">
+<table id="tblConsole" style="border:solid;">
 <thead>
   <tr><th colspan="2">Console Messages</th></tr>
   <tr><th>TimeStamp</th><th>Message</th></tr>
