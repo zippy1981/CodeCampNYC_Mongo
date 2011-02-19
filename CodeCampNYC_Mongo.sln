@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloMongo", "HelloMongo\HelloMongo.csproj", "{25C1232A-84C8-4FFA-B6A0-BEC5102613E8}"
 EndProject
 Global
@@ -13,6 +13,9 @@ Global
 		{25C1232A-84C8-4FFA-B6A0-BEC5102613E8}.Debug|x86.Build.0 = Debug|x86
 		{25C1232A-84C8-4FFA-B6A0-BEC5102613E8}.Release|x86.ActiveCfg = Release|x86
 		{25C1232A-84C8-4FFA-B6A0-BEC5102613E8}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = HelloMongo\HelloMongo.csproj
