@@ -21,7 +21,7 @@ namespace HelloMongo
 		private static void Main (string[] args)
 		{
 			var db = MongoDatabase.Create(ConfigurationManager.ConnectionStrings["codeCampNyc"].ConnectionString);
-			db["console"].Insert(CreateConsoleMessage("Hello Code Camp NYC!!"));
+			db["console"].Insert(CreateConsoleMessage("Hello Code Camp NYC!! Justin Can't Talk!!!"));
 			try {
 				//TODO: Finish this application before going on stage in front of all those people.
 				throw new NotImplementedException("It ain't done yet");
