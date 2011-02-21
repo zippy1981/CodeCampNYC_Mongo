@@ -11,7 +11,7 @@
         body  { font-family: Sans-Serif; }
         #tblConsole tr.headings th  { text-align: left; }
         #tblConsole { width: 95% }
-        #tblConsole th.timestamp  { width: 200px; }
+        #tblConsole th.timestamp, #tblConsole th.machineId  { width: 200px; }
     </style>
     <script type="text/javascript" src="jquery-1.5.min.js"></script>
     <script type="text/javascript" src="Objectid.js"></script>
@@ -19,14 +19,15 @@
 <body>
 <table id="tblConsole" style="border:solid;">
 <thead>
-  <tr><th class="title" colspan="2">Console Messages</th></tr>
-  <tr class="headings"><th class="timestamp">TimeStamp</th><th>Message</th></tr>
+  <tr><th class="title" colspan="3">Console Messages</th></tr>
+  <tr class="headings"><th class="timestamp">TimeStamp</th><th class="machineId">Machine Id</th><th>Message</th></tr>
 </thead>
 <tbody>
 <asp:Repeater id="consoleLines" runat="server"> 
     <ItemTemplate>
       <tr style="color: <%# ((int)Eval("FileHandle")) == 1 ? "#FF0000" : "#000000" %>">
         <td><%# ((MongoDB.Bson.ObjectId) Eval("Id")).CreationTime %>
+        <td><%# ((MongoDB.Bson.ObjectId) Eval("Id")).Machine %>
         </td><td><%# Eval("Message") %></td>
       </tr>
     </ItemTemplate>
@@ -34,12 +35,42 @@
 </tbody>
 </table>
 <form method="post" action="Console.aspx">
-    <span>Message: <input id="txtMessage" type="text" length="50" /><input id="btnMessage" type="button" value="Add Message" /></span>
+    <span>Message: <input id="txtMessage" type="text" /><input id="btnMessage" type="button" value="Add Message" /></span><br />
+    <span>Just Errors: <input id="btnErrors" type="button" value="Show Errors" /></span>
 </form>
 <script type="text/javascript">
     $(document).ready(function () {
-        $('#btnMessage').click(function() {
-            alert("We'll do it live like O'Reilly");
+        $('#btnMessage').click(function () {
+            var message = { Id: new ObjectId(), Message: $('#txtMessage').val(), FileHandle: 0 };
+            $.ajax({
+                url: 'ConsoleService.svc/JSON/WriteMessage',
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify({ request: message }),
+                dataType: "json",
+                success: function (data) {
+                    location.reload(true);
+                },
+                error: function (request, status, error) {
+                    console.log("Something Broke");
+                }
+            });
+        });
+
+        $('#btnErrors').click(function () {
+            $.ajax({
+                url: 'ConsoleService.svc/JSON/GetHostMessages',
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify({ request: { MachineId: (new ObjectId()).machine} }),
+                dataType: "json",
+                success: function (data) {
+                    alert(JSON.stringify(data.d));
+                },
+                error: function (request, status, error) {
+                    console.log("Something Broke");
+                }
+            });
         });
     });
 </script>

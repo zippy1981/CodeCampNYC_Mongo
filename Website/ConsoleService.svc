@@ -1,0 +1,6 @@
+﻿<%@
+    ServiceHost
+    Language="C#"
+    Debug="true"
+    Service="HelloWorld.Service.ConsoleService"
+%>

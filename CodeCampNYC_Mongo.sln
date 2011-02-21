@@ -6,6 +6,7 @@ EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Website", "Website\", "{D4F3F863-A3C4-4081-B76D-0BB989004CF5}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		ProjectReferences = "{DC8D162B-41D0-44C4-A056-989C91FEC37B}|HelloWorld.Service.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/Website"
 		Debug.AspNetCompiler.PhysicalPath = "Website\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\Website\"
@@ -22,6 +23,8 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Website", "Website\", "{D4F
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "3762"
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloWorld.Service", "HelloWorld.Service\HelloWorld.Service.csproj", "{DC8D162B-41D0-44C4-A056-989C91FEC37B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,6 +56,16 @@ Global
 		{D4F3F863-A3C4-4081-B76D-0BB989004CF5}.Release|Mixed Platforms.ActiveCfg = Debug|Any CPU
 		{D4F3F863-A3C4-4081-B76D-0BB989004CF5}.Release|Mixed Platforms.Build.0 = Debug|Any CPU
 		{D4F3F863-A3C4-4081-B76D-0BB989004CF5}.Release|x86.ActiveCfg = Debug|Any CPU
+		{DC8D162B-41D0-44C4-A056-989C91FEC37B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC8D162B-41D0-44C4-A056-989C91FEC37B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC8D162B-41D0-44C4-A056-989C91FEC37B}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{DC8D162B-41D0-44C4-A056-989C91FEC37B}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{DC8D162B-41D0-44C4-A056-989C91FEC37B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{DC8D162B-41D0-44C4-A056-989C91FEC37B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC8D162B-41D0-44C4-A056-989C91FEC37B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC8D162B-41D0-44C4-A056-989C91FEC37B}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{DC8D162B-41D0-44C4-A056-989C91FEC37B}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{DC8D162B-41D0-44C4-A056-989C91FEC37B}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
