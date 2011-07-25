@@ -28,7 +28,8 @@
       <tr style="color: <%# ((int)Eval("FileHandle")) == 1 ? "#FF0000" : "#000000" %>">
         <td><%# ((MongoDB.Bson.ObjectId) Eval("Id")).CreationTime %>
         <td><%# ((MongoDB.Bson.ObjectId) Eval("Id")).Machine %>
-        </td><td><%# Eval("Message") %></td>
+        </td><td><%# Eval("exitid") %></td>
+        </td><td><%# Eval("location[0]") %>, <%# Eval("location[1]") %></td>
       </tr>
     </ItemTemplate>
 </asp:Repeater>
@@ -36,7 +37,6 @@
 </table>
 <form method="post" action="Console.aspx">
     <span>Message: <input id="txtMessage" type="text" /><input id="btnMessage" type="button" value="Add Message" /></span><br />
-    <span>Just Errors: <input id="btnErrors" type="button" value="Show Errors" /></span>
 </form>
 <script type="text/javascript">
     $(document).ready(function () {
@@ -50,22 +50,6 @@
                 dataType: "json",
                 success: function (data) {
                     location.reload(true);
-                },
-                error: function (request, status, error) {
-                    console.log("Something Broke");
-                }
-            });
-        });
-
-        $('#btnErrors').click(function () {
-            $.ajax({
-                url: 'ConsoleService.svc/JSON/GetHostMessages',
-                type: "POST",
-                contentType: "application/json; charset=utf-8",
-                data: JSON.stringify({ request: { MachineId: (new ObjectId()).machine} }),
-                dataType: "json",
-                success: function (data) {
-                    alert(JSON.stringify(data.d));
                 },
                 error: function (request, status, error) {
                     console.log("Something Broke");

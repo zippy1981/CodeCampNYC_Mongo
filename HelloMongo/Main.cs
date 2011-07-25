@@ -21,13 +21,21 @@ namespace HelloMongo
 			var db = MongoDatabase.Create(ConfigurationManager.ConnectionStrings["codeCampNyc"].ConnectionString);
 			db["console"].Insert(CreateConsoleMessage("Hello Code Camp NYC!!"));
 			try {
-				//TODO: Finish this application before going on stage in front of all those people.
-				throw new NotImplementedException("It ain't done yet");
+                if (args.Length < 1)
+                {
+                    throw new NotImplementedException("No message passed!");
+                }
+			    db["console"].Insert(CreateConsoleMessage(args[0]));
+                Console.WriteLine("OK");
 			}
 			catch(Exception ex) {
 				db["console"].Insert(CreateConsoleMessage(ex.Message, true));
+                Console.Error.WriteLine("Error: {0}", ex.Message);
 			}
-			db.Server.Disconnect();
+            db.Server.Disconnect();
+
+            Console.WriteLine("Press Any Key To Continue . . .");
+            Console.ReadKey(true);
 		}
 	}
 }
