@@ -3,8 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloMongo", "HelloMongo\HelloMongo.csproj", "{25C1232A-84C8-4FFA-B6A0-BEC5102613E8}"
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Website", "Website\", "{D4F3F863-A3C4-4081-B76D-0BB989004CF5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloWorld.Service", "HelloWorld.Service\HelloWorld.Service.csproj", "{DC8D162B-41D0-44C4-A056-989C91FEC37B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloBson", "HelloBson\HelloBson.csproj", "{C82CAA40-13E8-47B9-9E68-EEB52063FF4B}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "localhost", "http://localhost:3762", "{F019B346-5D08-4686-9196-DB2974970BC1}"
 	ProjectSection(WebsiteProperties) = preProject
+		UseIISExpress = "true"
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
 		ProjectReferences = "{DC8D162B-41D0-44C4-A056-989C91FEC37B}|HelloWorld.Service.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/Website"
@@ -21,12 +26,8 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Website", "Website\", "{D4F
 		Release.AspNetCompiler.ForceOverwrite = "true"
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "3762"
+		SlnRelativePath = "Website\"
 	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloWorld.Service", "HelloWorld.Service\HelloWorld.Service.csproj", "{DC8D162B-41D0-44C4-A056-989C91FEC37B}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloBson", "HelloBson\HelloBson.csproj", "{C82CAA40-13E8-47B9-9E68-EEB52063FF4B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -48,16 +49,6 @@ Global
 		{25C1232A-84C8-4FFA-B6A0-BEC5102613E8}.Release|Mixed Platforms.Build.0 = Release|x86
 		{25C1232A-84C8-4FFA-B6A0-BEC5102613E8}.Release|x86.ActiveCfg = Release|x86
 		{25C1232A-84C8-4FFA-B6A0-BEC5102613E8}.Release|x86.Build.0 = Release|x86
-		{D4F3F863-A3C4-4081-B76D-0BB989004CF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D4F3F863-A3C4-4081-B76D-0BB989004CF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D4F3F863-A3C4-4081-B76D-0BB989004CF5}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{D4F3F863-A3C4-4081-B76D-0BB989004CF5}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{D4F3F863-A3C4-4081-B76D-0BB989004CF5}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{D4F3F863-A3C4-4081-B76D-0BB989004CF5}.Release|Any CPU.ActiveCfg = Debug|Any CPU
-		{D4F3F863-A3C4-4081-B76D-0BB989004CF5}.Release|Any CPU.Build.0 = Debug|Any CPU
-		{D4F3F863-A3C4-4081-B76D-0BB989004CF5}.Release|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{D4F3F863-A3C4-4081-B76D-0BB989004CF5}.Release|Mixed Platforms.Build.0 = Debug|Any CPU
-		{D4F3F863-A3C4-4081-B76D-0BB989004CF5}.Release|x86.ActiveCfg = Debug|Any CPU
 		{DC8D162B-41D0-44C4-A056-989C91FEC37B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DC8D162B-41D0-44C4-A056-989C91FEC37B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DC8D162B-41D0-44C4-A056-989C91FEC37B}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
@@ -78,6 +69,16 @@ Global
 		{C82CAA40-13E8-47B9-9E68-EEB52063FF4B}.Release|Mixed Platforms.Build.0 = Release|x86
 		{C82CAA40-13E8-47B9-9E68-EEB52063FF4B}.Release|x86.ActiveCfg = Release|x86
 		{C82CAA40-13E8-47B9-9E68-EEB52063FF4B}.Release|x86.Build.0 = Release|x86
+		{F019B346-5D08-4686-9196-DB2974970BC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F019B346-5D08-4686-9196-DB2974970BC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F019B346-5D08-4686-9196-DB2974970BC1}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{F019B346-5D08-4686-9196-DB2974970BC1}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{F019B346-5D08-4686-9196-DB2974970BC1}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F019B346-5D08-4686-9196-DB2974970BC1}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{F019B346-5D08-4686-9196-DB2974970BC1}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{F019B346-5D08-4686-9196-DB2974970BC1}.Release|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{F019B346-5D08-4686-9196-DB2974970BC1}.Release|Mixed Platforms.Build.0 = Debug|Any CPU
+		{F019B346-5D08-4686-9196-DB2974970BC1}.Release|x86.ActiveCfg = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -25,7 +25,7 @@ var ObjectId = (function () {
         }
         // Just always stick the value in.
         localStorage['mongoMachineId'] = machine;
-        document.cookie = 'mongoMachineId=' + machine + ';expires=Tue, 19 Jan 2038 05:00:00 GMT'
+        document.cookie = 'mongoMachineId=' + machine + ';expires=Tue, 19 Jan 2038 05:00:00 GMT';
     }
     else {
         var cookieList = document.cookie.split('; ');
@@ -46,31 +46,31 @@ var ObjectId = (function () {
         }
 
         if (typeof (arguments[0]) == 'object') {
-            this.timestamp = arguments[0].timestamp;
-            this.machine = arguments[0].machine;
-            this.pid = arguments[0].pid;
-            this.increment = arguments[0].increment;
+            this._timestamp = arguments[0].timestamp;
+            this._machine = arguments[0].machine;
+            this._pid = arguments[0].pid;
+            this._increment = arguments[0].increment;
         }
         else if (typeof (arguments[0]) == 'string' && arguments[0].length == 24) {
-            this.timestamp = Number('0x' + arguments[0].substr(0, 8)),
-            this.machine = Number('0x' + arguments[0].substr(8, 6)),
-            this.pid = Number('0x' + arguments[0].substr(14, 4)),
-            this.increment = Number('0x' + arguments[0].substr(18, 6))
+            this._timestamp = Number('0x' + arguments[0].substr(0, 8)),
+            this._machine = Number('0x' + arguments[0].substr(8, 6)),
+            this._pid = Number('0x' + arguments[0].substr(14, 4)),
+            this._increment = Number('0x' + arguments[0].substr(18, 6));
         }
         else if (arguments.length == 4 && arguments[0] != null) {
-            this.timestamp = arguments[0];
-            this.machine = arguments[1];
-            this.pid = arguments[2];
-            this.increment = arguments[3];
+            this._timestamp = arguments[0];
+            this._machine = arguments[1];
+            this._pid = arguments[2];
+            this._increment = arguments[3];
         }
         else {
-            this.timestamp = Math.floor(new Date().valueOf() / 1000);
-            this.machine = machine;
-            this.pid = pid;
+            this._timestamp = Math.floor(new Date().valueOf() / 1000);
+            this._machine = machine;
+            this._pid = pid;
             if (increment > 0xffffff) {
                 increment = 0;
             }
-            this.increment = increment++;
+            this._increment = increment++;
 
         }
     };
@@ -78,18 +78,17 @@ var ObjectId = (function () {
 
 ObjectId.prototype.getDate = function () {
     return new Date(this.timestamp * 1000);
-}
-
+};
 /**
 * Turns a WCF representation of a BSON ObjectId into a 24 character string representation.
 */
 ObjectId.prototype.toString = function () {
-    var timestamp = this.timestamp.toString(16);
-    var machine = this.machine.toString(16);
-    var pid = this.pid.toString(16);
-    var increment = this.increment.toString(16);
+    var timestamp = this._timestamp.toString(16);
+    var machine = this._machine.toString(16);
+    var pid = this._pid.toString(16);
+    var increment = this._increment.toString(16);
     return '00000000'.substr(0, 6 - timestamp.length) + timestamp +
            '000000'.substr(0, 6 - machine.length) + machine +
            '0000'.substr(0, 4 - pid.length) + pid +
            '000000'.substr(0, 6 - increment.length) + increment;
-}
+};

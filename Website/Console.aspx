@@ -13,7 +13,7 @@
         #tblConsole { width: 95% }
         #tblConsole th.timestamp, #tblConsole th.machineId  { width: 200px; }
     </style>
-    <script type="text/javascript" src="jquery-1.5.min.js"></script>
+    <script type="text/javascript" src="Scripts/jquery-1.7.2.min.js"></script>
     <script type="text/javascript" src="Objectid.js"></script>
 </head>
 <body>
@@ -26,18 +26,17 @@
 <asp:Repeater id="consoleLines" runat="server"> 
     <ItemTemplate>
       <tr style="color: <%# ((int)Eval("FileHandle")) == 1 ? "#FF0000" : "#000000" %>">
-        <td><%# ((MongoDB.Bson.ObjectId) Eval("Id")).CreationTime %>
-        <td><%# ((MongoDB.Bson.ObjectId) Eval("Id")).Machine %>
-        </td><td><%# Eval("exitid") %></td>
-        </td><td><%# Eval("location[0]") %>, <%# Eval("location[1]") %></td>
+        <td><%# ((MongoDB.Bson.ObjectId) Eval("Id")).CreationTime %></td>
+        <td><%# ((MongoDB.Bson.ObjectId) Eval("Id")).Machine %></td>
+        <td><%# Eval("Message") %></td>
       </tr>
     </ItemTemplate>
 </asp:Repeater>
 </tbody>
 </table>
-<form method="post" action="Console.aspx">
+<form method="post" action="Console.aspx"><div>
     <span>Message: <input id="txtMessage" type="text" /><input id="btnMessage" type="button" value="Add Message" /></span><br />
-</form>
+</div></form>
 <script type="text/javascript">
     $(document).ready(function () {
         $('#btnMessage').click(function () {

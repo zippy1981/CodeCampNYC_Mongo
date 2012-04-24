@@ -26,7 +26,7 @@ namespace HelloWorld.Service
         {
             var cursor = _db["console"].FindAllAs<ConsoleInfo>();
 
-            return (List<ConsoleInfo>)(from doc in cursor where doc.Id.Machine == request.MachineId select doc).ToList();
+            return (from doc in cursor where doc.Id.Machine == request.MachineId select doc).ToList();
         }
 
         public void WriteMessage(WriteMessageRequest request)

@@ -1,6 +1,6 @@
 ﻿using System.Runtime.Serialization;
 using MongoDB.Bson;
-using MongoDB.Bson.DefaultSerializer;
+using MongoDB.Bson.Serialization.Attributes;
 
 namespace HelloWorld.Service
 {

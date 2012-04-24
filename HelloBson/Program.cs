@@ -19,7 +19,7 @@ namespace HelloBson
                               IsConsultant = true,
                               Languages = new[]
                                               {
-                                                  "C#", "PHP", "Javascript"
+                                                  "C#", "PHP", "Javascript", "PowerShell"
                                               }
                           };
 

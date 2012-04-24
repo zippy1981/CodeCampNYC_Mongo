@@ -9,3 +9,6 @@ TestResult.xml
 UpgradeLog.XML
 _ReSharper.*/
 _UpgradeReport_Files/
+packages/
+*~
+desktop.ini

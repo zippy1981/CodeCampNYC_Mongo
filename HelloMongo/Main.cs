@@ -19,11 +19,11 @@ namespace HelloMongo
 		private static void Main (string[] args)
 		{
 			var db = MongoDatabase.Create(ConfigurationManager.ConnectionStrings["codeCampNyc"].ConnectionString);
-			db["console"].Insert(CreateConsoleMessage("Hello Code Camp NYC!!"));
+			db["console"].Insert(CreateConsoleMessage("Hello PhillyNJ.NET!!"));
 			try {
                 if (args.Length < 1)
                 {
-                    throw new NotImplementedException("No message passed!");
+                    throw new ArgumentException("No message passed!");
                 }
 			    db["console"].Insert(CreateConsoleMessage(args[0]));
                 Console.WriteLine("OK");
