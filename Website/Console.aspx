@@ -40,7 +40,11 @@
 <script type="text/javascript">
     $(document).ready(function () {
         $('#btnMessage').click(function () {
-            var message = { Id: new ObjectId(), Message: $('#txtMessage').val(), FileHandle: 0 };
+            var message = {
+                Id: new ObjectId(),
+                Message: $('#txtMessage').val(), 
+                FileHandle: 0
+            };
             $.ajax({
                 url: 'ConsoleService.svc/JSON/WriteMessage',
                 type: "POST",

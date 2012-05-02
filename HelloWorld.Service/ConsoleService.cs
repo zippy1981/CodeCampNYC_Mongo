@@ -13,7 +13,7 @@ namespace HelloWorld.Service
         MongoDatabase _db = MongoDatabase.Create
             (ConfigurationManager.ConnectionStrings["codeCampNyc"].ConnectionString);
 
-        private static BsonDocument CreateConsoleMessage(string message, bool error = false)
+        private static BsonDocument CreateConsoleMessage(string message, bool error = false, ObjectId? id = null)
         {
             return new BsonDocument {
 				{"_id", ObjectId.GenerateNewId() },
@@ -31,7 +31,7 @@ namespace HelloWorld.Service
 
         public void WriteMessage(WriteMessageRequest request)
         {
-            _db["console"].Insert(CreateConsoleMessage(request.Message));
+            _db["console"].Insert(request);
         }
     }
 }

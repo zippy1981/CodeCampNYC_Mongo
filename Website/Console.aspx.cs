@@ -1,10 +1,12 @@
 using System;
 using System.Configuration;
+using System.Linq;
 using System.Web.UI;
 
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Driver;
+using MongoDB.Driver.Linq;
 
 public partial class Console : Page
 {
@@ -19,7 +21,8 @@ public partial class Console : Page
     {
         var db = MongoDatabase.Create
             (ConfigurationManager.ConnectionStrings["codeCampNyc"].ConnectionString);
-        var cursor = db["console"].FindAllAs<ConsoleInfo>();
+        //var cursor = db["console"].FindAs<ConsoleInfo>();
+        var cursor = (from console in db["console"].AsQueryable<ConsoleInfo>() select console);
         consoleLines.DataSource = cursor;
         consoleLines.DataBind();
     }
